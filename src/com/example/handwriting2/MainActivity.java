@@ -446,94 +446,121 @@ public class MainActivity extends SimpleBaseGameActivity implements IOnSceneTouc
 					pSceneTouchEvent.getX() - rect.getWidth()/2,
 					pSceneTouchEvent.getY() - rect.getHeight()/2 );
 			
-			for(int a=1; a<40; a++)
+//			for(int a=1; a<40; a++)
+//			{
+//				if(rect.collidesWith(rectangle1[a]))
+//				{
+//					Debug.d("rectangle1 collision no:"+a);
+//					pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
+//							rect.getY()-pieceChalk.getHeight()/2);
+//					
+//					if(a == 8)
+//					{
+//						a1++;
+//						if(a1==1)
+//						{
+//							rectangle1Serialze++;
+//						}
+//					}
+//					
+//				}
+//			}
+			
+			if(rectangle1Serialze == 0)
 			{
-				if(rect.collidesWith(rectangle1[a]))
+				for(int a=1; a<10; a++)
 				{
-					Debug.d("rectangle1 collision no:"+a);
-					pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
-							rect.getY()-pieceChalk.getHeight()/2);
-					
-					if(a == 8)
+					if(rect.collidesWith(rectangle1[a]))
 					{
-						a1++;
-						if(a1==1)
+						Debug.d("rectangle1 collision no:"+a);
+						pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
+								rect.getY()-pieceChalk.getHeight()/2);
+						
+						if(drawingDisabler == 0)
 						{
-							rectangle1Serialze++;
+							DrawImage(pSceneTouchEvent.getX() - 25, 
+								pSceneTouchEvent.getY() - 30); 
 						}
+						
+						if(a == 8)
+						{
+							a1++;
+							if(a1==1)
+							{
+								rectangle1Serialze++;
+							}
+						}
+						
 					}
-					
 				}
 			}
 			
-//			if(rectangle1Serialze == 0)
-//			{
-//				for(int a=1; a<9; a++)
-//				{
-//					if(rect.collidesWith(rectangle1[a]))
-//					{
-//						Debug.d("rectangle1 collision no:"+a);
-//						pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
-//								rect.getY()-pieceChalk.getHeight()/2);
-//						
-//						if(a == 8)
-//						{
-//							a1++;
-//							if(a1==1)
-//							{
-//								rectangle1Serialze++;
-//							}
-//						}
-//						
-//					}
-//				}
-//			}
-//			
-//			if(rectangle1Serialze == 1)
-//			{
-//				a1 = 0;
-//				for(int a=9; a<25; a++)
-//				{
-//					if(rect.collidesWith(rectangle1[a]))
-//					{
-//						Debug.d("rectangle1 collision no:"+a);
-//						pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
-//								rect.getY()-pieceChalk.getHeight()/2);
-//						
-//						if(a == 25)
-//						{
-//							a1++;
-//							if(a1==1)
-//							{
-//								rectangle1Serialze++;
-//							}
-//						}
-//						
-//					}
-//				}
-//			}
-			
-			
-//			if(rectangle1Serialze == 2)
-//			{
-//				for(int a=25; a<40; a++)
-//				{
-//					if(rect.collidesWith(rectangle1[a]))
-//					{
-//						Debug.d("rectangle1 collision no:"+a);
-//						pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
-//								rect.getY()-pieceChalk.getHeight()/2);
-//					}
-//				}
-//				rectangle1Serialze++;
-//			}
-			
-			//For drawing white chalk
-			if(drawingDisabler == 0)
+			if(rectangle1Serialze == 1)
 			{
-				DrawImage(pSceneTouchEvent.getX() - 25, 
-					pSceneTouchEvent.getY() - 30); 
+				a1 = 0;
+				for(int a=12; a<25; a++)
+				{
+					if(rect.collidesWith(rectangle1[a]))
+					{
+						Debug.d("rectangle1 collision no:"+a);
+						pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
+								rect.getY()-pieceChalk.getHeight()/2);
+						
+						if(drawingDisabler == 0)
+						{
+							DrawImage(pSceneTouchEvent.getX() - 25, 
+								pSceneTouchEvent.getY() - 30); 
+						}
+						
+						if(a == 24)
+						{
+							a1++;
+							if(a1==1)
+							{
+								rectangle1Serialze++;
+							}
+						}
+						
+					}
+				}
+				Debug.d("r:"+rectangle1Serialze);
 			}
+			
+			if(rectangle1Serialze == 2)
+			{
+				a1 = 0;
+				for(int a=25; a<40; a++)
+				{
+					if(rect.collidesWith(rectangle1[a]))
+					{
+						Debug.d("rectangle1 collision no:"+a);
+						pieceChalk.setPosition(rect.getX()- pieceChalk.getWidth()/3,
+								rect.getY()-pieceChalk.getHeight()/2);
+						
+						if(drawingDisabler == 0)
+						{
+							DrawImage(pSceneTouchEvent.getX() - 25, 
+								pSceneTouchEvent.getY() - 30); 
+						}
+						
+						if(a == 40)
+						{
+							a1++;
+							if(a1==1)
+							{
+								rectangle1Serialze++;
+							}
+						}
+						
+					}
+				}
+			}
+			//For drawing white chalk
+//			if(drawingDisabler == 0)
+//			{
+//				DrawImage(pSceneTouchEvent.getX() - 25, 
+//					pSceneTouchEvent.getY() - 30); 
+//			}
 			//For piece chalk to be dragged within letter mo range 
 //			if((pSceneTouchEvent.getX()> moOutLine.getX() && 
 //					pSceneTouchEvent.getX()< moOutLine.getX()+moOutLine.getWidth()) &&
@@ -627,6 +654,7 @@ public class MainActivity extends SimpleBaseGameActivity implements IOnSceneTouc
 		// TODO Auto-generated method stub
 		whiteChalk = new Sprite(x, y, MainActivity.mWhiteChalkTextureRegion,
 				MainActivity.vertexBufferObjectManager); 
+		Debug.d("whiteChalk.x:"+whiteChalk.getX());
 		//whiteChalk.setVisible(false);
 		mScene.attachChild(MainActivity.whiteChalk);
 		whiteChalk.setScale((float) 0.4);
